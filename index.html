@@ -1,33 +1,6 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="pt-BR">
-<head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="web_standard" name="shell-type"/>
-
-  <!-- SEO & Social Sharing (WhatsApp, Instagram, etc) -->
-  <title>Sophia Fontes • 15 Anos | O Encontro do Sol com a Lua</title>
-  <meta name="description" content="Celebração de 15 Anos de Sophia Fontes — O Encontro do Sol com a Lua. Confirme sua presença e viva esta noite mágica no Ballroom Solarium.">
-  <meta name="theme-color" content="#070d20">
-
-  <!-- Open Graph / WhatsApp -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Sophia Fontes • 15 Anos | O Encontro do Sol com a Lua">
-  <meta property="og:description" content="Você é nosso convidado de honra para celebrar os 15 anos da Sophia Fontes. Toque para abrir a experiência do convite.">
-  <meta property="og:image" content="public/arte-principal.jpg">
-
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sophia Fontes • 15 Anos | O Encontro do Sol com a Lua">
-  <meta name="twitter:description" content="Você é nosso convidado de honra para celebrar os 15 anos da Sophia Fontes.">
-  <meta name="twitter:image" content="public/arte-principal.jpg">
-
-  <link rel="icon" type="image/jpeg" href="public/arte-principal.jpg"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Cinzel:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<html class="dark" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Cinzel:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
 <style>
   @layer base {
     html, body {
@@ -92,64 +65,6 @@
 </style>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline-variant": "#4e4637", "inverse-primary": "#785a00", "on-error-container": "#ffdad6", "on-background": "#dce1fd", "surface-container-high": "#23293d", "tertiary": "#ffeab2", "secondary-fixed": "#ffe088", "on-tertiary-fixed": "#231b00", "primary-fixed": "#ffdf9c", "error": "#ffb4ab", "on-secondary-container": "#342800", "on-error": "#690005", "surface": "#070d20", "on-surface": "#dce1fd", "secondary-container": "#af8d11", "tertiary-fixed-dim": "#e2c469", "on-tertiary-fixed-variant": "#564500", "tertiary-container": "#ebcd71", "surface-container": "#181f33", "error-container": "#93000a", "on-primary": "#3f2e00", "surface-dim": "#070d20", "on-tertiary-container": "#6b5600", "on-primary-container": "#715400", "background": "#070d20", "on-secondary-fixed-variant": "#574500", "primary": "#ffeac1", "on-primary-fixed": "#251a00", "surface-container-highest": "#2e3449", "surface-bright": "#32384d", "surface-container-lowest": "#040713", "inverse-on-surface": "#293044", "on-secondary-fixed": "#241a00", "secondary-fixed-dim": "#e9c349", "primary-container": "#f6ca65", "outline": "#9a8f7d", "on-surface-variant": "#d1c5b1", "on-primary-fixed-variant": "#5b4300", "on-secondary": "#3c2f00", "primary-fixed-dim": "#ecc15d", "secondary": "#e9c349", "tertiary-fixed": "#ffe083", "on-tertiary": "#3c2f00", "inverse-surface": "#dce1fd", "surface-variant": "#2e3449", "surface-tint": "#ecc15d", "surface-container-low": "#0d1428" }, "fontFamily": { "cinzel": ["Cinzel", "serif"], "serif-display": ["Playfair Display", "serif"], "manrope": ["Manrope", "sans-serif"] } } } }</script></head>
 <body class="bg-[#070d20] font-manrope text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden">
-<!-- ================= INTRODUÇÃO FULLSCREEN EM VÍDEO (PRIMEIRA EXECUÇÃO) ================= -->
-<div id="intro-video-overlay" class="fixed inset-0 z-[100] bg-[#040713] flex flex-col items-center justify-center overflow-hidden transition-opacity duration-1000 select-none">
-  <!-- Container do Vídeo Fullscreen -->
-  <div class="relative w-full h-full flex items-center justify-center bg-black">
-    <video
-      id="intro-video"
-      class="w-full h-full object-contain bg-black"
-      playsinline
-      webkit-playsinline
-      preload="auto"
-    >
-      <source src="public/video-intro.mp4" type="video/mp4">
-      Seu navegador não suporta a reprodução deste vídeo.
-    </video>
-
-    <!-- Cartão de Início (caso o navegador restrinja o autoplay com áudio antes do 1º clique) -->
-    <div id="intro-play-prompt" class="absolute inset-0 bg-[#040713]/90 backdrop-blur-md hidden flex-col items-center justify-center z-20 text-center p-6 transition-all duration-500">
-      <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-primary-container/60 bg-[#070d20]/90 backdrop-blur-md flex items-center justify-center text-secondary mb-4 shadow-[0_0_35px_rgba(246,202,101,0.4)] animate-pulse">
-        <span class="font-cinzel text-xl sm:text-2xl font-bold text-primary">SF</span>
-      </div>
-      <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-primary-container/30 bg-[#0b132b]/80 backdrop-blur-md mb-3 shadow-[0_0_20px_rgba(246,202,101,0.15)]">
-        <span class="text-secondary text-xs">✦</span>
-        <span class="font-cinzel text-[11px] sm:text-xs uppercase tracking-[0.35em] text-secondary font-semibold">Sophia Fontes • 15 Anos</span>
-        <span class="text-secondary text-xs">✦</span>
-      </div>
-      <h2 class="font-serif-display text-2xl sm:text-4xl text-primary italic mb-6 tracking-wide drop-shadow-[0_2px_15px_rgba(246,202,101,0.3)]">
-        ✦ O Encontro do Sol com a Lua ✦
-      </h2>
-      <button id="btn-start-intro" class="group px-8 py-3.5 sm:px-10 sm:py-4 rounded-full bg-gradient-to-r from-secondary-fixed via-primary-container to-secondary text-on-primary-container font-cinzel text-xs sm:text-sm font-bold uppercase tracking-[0.25em] shadow-[0_0_30px_rgba(246,202,101,0.6)] hover:scale-105 active:scale-95 transition-all flex items-center gap-3 cursor-pointer">
-        <span class="material-symbols-outlined text-xl group-hover:scale-125 transition-transform">play_arrow</span>
-        <span>Iniciar Experiência</span>
-      </button>
-      <span class="text-[10px] sm:text-[11px] text-on-surface-variant font-cinzel uppercase tracking-[0.2em] mt-4 opacity-80">
-        Toque para assistir à introdução
-      </span>
-    </div>
-
-    <!-- Barra de Progresso Dourada Delicada no rodapé do vídeo -->
-    <div class="absolute bottom-0 left-0 right-0 h-1 bg-[#070d20]/80 z-10 pointer-events-none">
-      <div id="intro-progress-bar" class="h-full bg-gradient-to-r from-secondary via-primary-container to-secondary w-0 transition-all duration-150 shadow-[0_0_12px_rgba(246,202,101,0.9)]"></div>
-    </div>
-
-    <!-- Tela Desbloqueada ao Término do Vídeo -->
-    <div id="intro-finish-cta" class="absolute inset-0 bg-gradient-to-t from-[#040713]/95 via-[#040713]/50 to-transparent opacity-0 pointer-events-none transition-all duration-700 flex flex-col items-center justify-end pb-14 sm:pb-20 z-30 cursor-pointer">
-      <div class="flex flex-col items-center text-center px-4 animate-float">
-        <div class="w-14 h-14 rounded-full border border-primary-container/70 bg-[#070d20]/90 backdrop-blur-md flex items-center justify-center text-primary-container shadow-[0_0_30px_rgba(246,202,101,0.6)] mb-3">
-          <span class="material-symbols-outlined text-2xl animate-pulse">auto_awesome</span>
-        </div>
-        <button id="btn-enter-invite" class="px-8 py-3.5 sm:px-10 sm:py-4 rounded-full bg-gradient-to-r from-secondary-fixed via-primary-container to-secondary text-on-primary-container font-cinzel text-xs sm:text-sm font-bold uppercase tracking-[0.25em] shadow-[0_0_35px_rgba(246,202,101,0.8)] hover:scale-105 active:scale-95 transition-all cursor-pointer">
-          Entrar no Convite ✦
-        </button>
-        <p class="font-cinzel text-[11px] sm:text-xs text-secondary tracking-[0.25em] uppercase mt-3 animate-pulse">
-          Toque em qualquer lugar da tela para entrar
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- Floating Top Ambient: Discreet Monogram ONLY (Zero Institutional Navbar) -->
 <header class="fixed top-0 left-0 right-0 w-full z-40 pointer-events-none p-5 sm:p-7 flex items-center justify-between">
 <div class="pointer-events-auto flex items-center gap-3">
@@ -159,17 +74,11 @@
 <span class="hidden sm:inline font-cinzel text-[11px] uppercase tracking-[0.3em] text-secondary/80">Sophia Fontes • XV</span>
 </div>
 <div class="pointer-events-auto flex items-center gap-3">
-<button class="w-10 h-10 rounded-full border border-primary-container/30 bg-[#070d20]/80 backdrop-blur-md flex items-center justify-center text-primary-container hover:border-primary-container hover:shadow-[0_0_20px_rgba(246,202,101,0.4)] transition-all cursor-pointer relative" id="audio-toggle-btn" title="Trilha Sonora Celestial" aria-label="Controlar Trilha Sonora Celestial">
+<button class="w-10 h-10 rounded-full border border-primary-container/30 bg-[#070d20]/80 backdrop-blur-md flex items-center justify-center text-primary-container hover:border-primary-container hover:shadow-[0_0_20px_rgba(246,202,101,0.4)] transition-all" id="audio-toggle-btn" title="Trilha Sonora Celestial">
 <span class="material-symbols-outlined text-[18px]" id="audio-icon">volume_up</span>
-<span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-primary-container animate-ping opacity-75" id="audio-pulse-indicator"></span>
-<span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-primary-container" id="audio-status-dot"></span>
 </button>
 </div>
 </header>
-<!-- Áudio em segundo plano: O Sol pediu a lua em casamento -->
-<audio id="bg-audio" loop preload="auto">
-  <source src="public/musica-sol-e-lua.mpeg" type="audio/mpeg">
-</audio>
 <main class="w-full min-h-screen bg-[#070d20] relative flex flex-col items-center justify-center overflow-hidden">
 <!-- Dynamic Stardust Canvas -->
 <canvas class="absolute inset-0 w-full h-full pointer-events-none z-0" height="1191" id="celestial-canvas" width="1280"></canvas>
@@ -210,9 +119,9 @@
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[106%] h-[106%] sm:w-[108%] sm:h-[108%] rounded-[50%] border border-primary-container/10 pointer-events-none"></div>
 <!-- Golden Halo Glow behind Artwork -->
 <div class="absolute inset-4 sm:inset-6 rounded-2xl bg-gradient-to-r from-primary-container/25 via-secondary/20 to-primary-container/25 blur-2xl -z-10 animate-pulse-gold"></div>
-<!-- The Central Art Piece -->
+<!-- The Central Art Piece https://lh3.googleusercontent.com/aida-public/AB6AXuBzTRp8EO1jeRsvKgN6Fezt7EGb_710cA6M6-b51u-zIlPg_m5D--OQyvT6dlNMMR9lSkBLMuz2yaKicu4A7W0qzJwPUIkXM9-HuF00lDvlj5gKJR_afYc_jNhfffczaAe7BKEpOBPZ1sKumr5T3rHga2P51RXFvh-1M-SDMxpuJMvJjdxGPhGxJ3GYgJscWzH5AgyoiDlP_-gfLrtmf1jGy1dSun0GkiYb8b6q7isf8k9xk-sOJA2KKKvml-uzwKUYZg -->
 <div class="relative w-full h-full rounded-2xl overflow-hidden border-2 border-primary-container/50 shadow-[0_0_60px_rgba(246,202,101,0.35),0_25px_80px_rgba(0,0,0,0.9)] group">
-<img alt="O Encontro do Sol com a Lua - Sophia Fontes 15 Anos" class="w-full h-full object-cover object-center scale-[1.01] group-hover:scale-105 transition-transform duration-1000 ease-out" src="public/arte-principal.jpg"/>
+<img alt="O Encontro do Sol com a Lua - Sophia Fontes 15 Anos" class="w-full h-full object-cover object-center scale-[1.01] group-hover:scale-105 transition-transform duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzTRp8EO1jeRsvKgN6Fezt7EGb_710cA6M6-b51u-zIlPg_m5D--OQyvT6dlNMMR9lSkBLMuz2yaKicu4A7W0qzJwPUIkXM9-HuF00lDvlj5gKJR_afYc_jNhfffczaAe7BKEpOBPZ1sKumr5T3rHga2P51RXFvh-1M-SDMxpuJMvJjdxGPhGxJ3GYgJscWzH5AgyoiDlP_-gfLrtmf1jGy1dSun0GkiYb8b6q7isf8k9xk-sOJA2KKKvml-uzwKUYZg"/>
 <!-- Subtle Vignette & Shimmer -->
 <div class="absolute inset-0 bg-gradient-to-t from-[#070d20]/80 via-transparent to-[#070d20]/40 pointer-events-none"></div>
 <div class="absolute inset-0 bg-gradient-to-r from-[#070d20]/50 via-transparent to-[#070d20]/50 pointer-events-none"></div>
@@ -555,17 +464,11 @@
 </div>
 <div class="space-y-4">
 <div class="rounded-xl overflow-hidden border border-primary-container/40 shadow-lg relative aspect-video">
-<img alt="Obra de Arte Sophia Fontes" class="w-full h-full object-cover" src="public/arte-principal.jpg"/>
+<img alt="Obra de Arte Sophia Fontes" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzTRp8EO1jeRsvKgN6Fezt7EGb_710cA6M6-b51u-zIlPg_m5D--OQyvT6dlNMMR9lSkBLMuz2yaKicu4A7W0qzJwPUIkXM9-HuF00lDvlj5gKJR_afYc_jNhfffczaAe7BKEpOBPZ1sKumr5T3rHga2P51RXFvh-1M-SDMxpuJMvJjdxGPhGxJ3GYgJscWzH5AgyoiDlP_-gfLrtmf1jGy1dSun0GkiYb8b6q7isf8k9xk-sOJA2KKKvml-uzwKUYZg"/>
 </div>
 <p class="text-center text-xs text-on-surface-variant font-manrope italic">
         A harmonia sagrada entre a luz radiante do Sol e o misticismo protetor da Lua, celebrando o nascimento deste novo ciclo.
       </p>
-<div class="pt-2 text-center">
-  <button onclick="closeCelestialModal(); replayIntroVideo();" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-primary-container/50 bg-[#070d20] hover:bg-surface-container-high text-primary hover:border-primary-container text-xs font-cinzel tracking-[0.15em] uppercase transition-all shadow-[0_0_15px_rgba(246,202,101,0.2)] cursor-pointer">
-    <span class="material-symbols-outlined text-base text-secondary">replay</span>
-    <span>Rever Vídeo de Introdução</span>
-  </button>
-</div>
 </div>
 </div>
 </div>
@@ -699,231 +602,14 @@
       }
     };
 
-    // =========================================================================
-    // 4. Controlador de Introdução em Vídeo Fullscreen & Trilha Sonora de Fundo
-    // =========================================================================
-    const introOverlay = document.getElementById('intro-video-overlay');
-    const introVideo = document.getElementById('intro-video');
-    const introPlayPrompt = document.getElementById('intro-play-prompt');
-    const btnStartIntro = document.getElementById('btn-start-intro');
-    const introProgressBar = document.getElementById('intro-progress-bar');
-    const introFinishCta = document.getElementById('intro-finish-cta');
-    const btnEnterInvite = document.getElementById('btn-enter-invite');
-
-    const bgAudio = document.getElementById('bg-audio');
+    // 4. Music icon state toggle
     const audioBtn = document.getElementById('audio-toggle-btn');
     const audioIcon = document.getElementById('audio-icon');
-    const audioPulse = document.getElementById('audio-pulse-indicator');
-    const audioDot = document.getElementById('audio-status-dot');
-
-    let videoEnded = false;
-    let siteUnlocked = false;
-    let userMutedAudio = false;
-
-    // Atualização visual do botão de áudio no topo
-    function updateAudioUI(isPlaying) {
-      if (!audioIcon || !audioBtn) return;
-      if (isPlaying) {
-        audioIcon.textContent = 'volume_up';
-        audioBtn.setAttribute('title', 'Pausar Trilha Sonora Celestial');
-        audioBtn.setAttribute('aria-label', 'Pausar Trilha Sonora Celestial');
-        audioBtn.classList.add('shadow-[0_0_20px_rgba(246,202,101,0.5)]', 'border-primary-container');
-        audioBtn.classList.remove('opacity-70', 'border-primary-container/30');
-        if (audioPulse) audioPulse.classList.remove('hidden');
-        if (audioDot) {
-          audioDot.classList.remove('hidden');
-          audioDot.classList.add('bg-primary-container');
-        }
-      } else {
-        audioIcon.textContent = 'volume_off';
-        audioBtn.setAttribute('title', 'Tocar Trilha Sonora Celestial');
-        audioBtn.setAttribute('aria-label', 'Tocar Trilha Sonora Celestial');
-        audioBtn.classList.remove('shadow-[0_0_20px_rgba(246,202,101,0.5)]', 'border-primary-container');
-        audioBtn.classList.add('opacity-70', 'border-primary-container/30');
-        if (audioPulse) audioPulse.classList.add('hidden');
-        if (audioDot) audioDot.classList.add('hidden');
-      }
-    }
-
-    // Inicia a trilha sonora de fundo ("O Sol pediu a lua em casamento")
-    function startBackgroundMusic() {
-      if (!bgAudio || userMutedAudio) return;
-      bgAudio.volume = 0.65;
-      const playPromise = bgAudio.play();
-      if (playPromise !== undefined) {
-        playPromise.then(() => {
-          updateAudioUI(true);
-        }).catch(() => {
-          updateAudioUI(false);
-        });
-      }
-    }
-
-    // Desbloqueia a tela e entra na página do convite
-    function enterInvitation() {
-      if (siteUnlocked) return;
-      siteUnlocked = true;
-
-      if (introVideo) {
-        introVideo.pause();
-      }
-
-      // Transição suave de saída do vídeo de introdução
-      if (introOverlay) {
-        introOverlay.classList.add('opacity-0', 'pointer-events-none');
-        setTimeout(() => {
-          introOverlay.style.display = 'none';
-        }, 1000);
-      }
-
-      // Inicia a música de fundo
-      startBackgroundMusic();
-    }
-
-    // Ao terminar o vídeo, habilita a tela para toque/clique
-    function onVideoCompleted() {
-      if (videoEnded) return;
-      videoEnded = true;
-
-      // Exibe a chamada para entrar e habilita o toque em qualquer lugar
-      if (introFinishCta) {
-        introFinishCta.classList.remove('opacity-0', 'pointer-events-none');
-        introFinishCta.classList.add('opacity-100', 'pointer-events-auto');
-      }
-
-      if (introProgressBar) {
-        introProgressBar.style.width = '100%';
-      }
-
-      // Adiciona ouvintes para tocar na tela ou clicar
-      if (introFinishCta) {
-        introFinishCta.addEventListener('click', enterInvitation);
-      }
-      if (introOverlay) {
-        introOverlay.addEventListener('click', enterInvitation);
-      }
-      if (btnEnterInvite) {
-        btnEnterInvite.addEventListener('click', function(e) {
-          e.stopPropagation();
-          enterInvitation();
-        });
-      }
-    }
-
-    // Inicialização do vídeo
-    if (introVideo) {
-      // Atualiza a barra de progresso durante o vídeo
-      introVideo.addEventListener('timeupdate', function () {
-        if (introVideo.duration && introProgressBar) {
-          const pct = (introVideo.currentTime / introVideo.duration) * 100;
-          introProgressBar.style.width = pct + '%';
-
-          // Quase no final (fallback de segurança)
-          if (introVideo.currentTime >= introVideo.duration - 0.25) {
-            onVideoCompleted();
-          }
-        }
-      });
-
-      // Evento de término nativo do vídeo
-      introVideo.addEventListener('ended', onVideoCompleted);
-
-      // Tratamento de erro de carregamento (fallback para não travar o usuário)
-      introVideo.addEventListener('error', function () {
-        console.warn('Vídeo não carregado, liberando entrada.');
-        onVideoCompleted();
-      });
-
-      // Tenta autoplay imediato com áudio
-      const playPromise = introVideo.play();
-      if (playPromise !== undefined) {
-        playPromise.then(() => {
-          // Autoplay bem-sucedido
-          if (introPlayPrompt) introPlayPrompt.classList.add('hidden');
-        }).catch(() => {
-          // Autoplay bloqueado pelo navegador -> exibe tela com botão "Iniciar Experiência"
-          if (introPlayPrompt) {
-            introPlayPrompt.classList.remove('hidden');
-            introPlayPrompt.classList.add('flex');
-          }
-        });
-      }
-
-      // Clique no botão de início manual (caso o navegador exija interação prévia)
-      function startVideoManual() {
-        if (introPlayPrompt) introPlayPrompt.classList.add('hidden');
-        introVideo.play().catch(err => {
-          console.warn('Erro ao tocar vídeo manualmente:', err);
-          onVideoCompleted();
-        });
-      }
-
-      if (btnStartIntro) {
-        btnStartIntro.addEventListener('click', function(e) {
-          e.stopPropagation();
-          startVideoManual();
-        });
-      }
-      if (introPlayPrompt) {
-        introPlayPrompt.addEventListener('click', startVideoManual);
-      }
-    } else {
-      // Se por algum motivo o vídeo não existir no DOM, libera o convite
-      enterInvitation();
-    }
-
-    // Função pública para rever o vídeo pela Galeria ou menu
-    window.replayIntroVideo = function () {
-      if (!introOverlay || !introVideo) return;
-      if (bgAudio) bgAudio.pause();
-      updateAudioUI(false);
-
-      videoEnded = false;
-      siteUnlocked = false;
-
-      if (introFinishCta) {
-        introFinishCta.classList.add('opacity-0', 'pointer-events-none');
-        introFinishCta.classList.remove('opacity-100', 'pointer-events-auto');
-      }
-      if (introProgressBar) {
-        introProgressBar.style.width = '0%';
-      }
-
-      introOverlay.style.display = 'flex';
-      introOverlay.classList.remove('opacity-0', 'pointer-events-none');
-
-      introVideo.currentTime = 0;
-      introVideo.play().catch(() => {
-        if (introPlayPrompt) {
-          introPlayPrompt.classList.remove('hidden');
-          introPlayPrompt.classList.add('flex');
-        }
-      });
-    };
-
-    // Controle do Botão de Áudio (Trilha Sonora de Fundo)
-    if (audioBtn && bgAudio) {
-      audioBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        if (!bgAudio.paused) {
-          bgAudio.pause();
-          userMutedAudio = true;
-          updateAudioUI(false);
-        } else {
-          userMutedAudio = false;
-          bgAudio.play().then(() => {
-            updateAudioUI(true);
-          }).catch(err => {
-            console.log('Erro ao reproduzir áudio:', err);
-          });
-        }
-      });
-
-      bgAudio.addEventListener('play', () => updateAudioUI(true));
-      bgAudio.addEventListener('pause', () => updateAudioUI(false));
-      bgAudio.addEventListener('ended', () => {
-        bgAudio.currentTime = 0;
-        bgAudio.play().catch(() => {});
+    let playing = true;
+    if (audioBtn && audioIcon) {
+      audioBtn.addEventListener('click', function() {
+        playing = !playing;
+        audioIcon.textContent = playing ? 'volume_up' : 'volume_off';
       });
     }
   })();

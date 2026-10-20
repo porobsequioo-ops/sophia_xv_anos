@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=Cinzel:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
+  @layer base {
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #070d20;
+    }
+    body {
+      overscroll-behavior: none;
+    }
+  }
+  ::-webkit-scrollbar { display: none; }
+
+  /* Orbital Animation Delicacy */
+  @keyframes orbit-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.06); opacity: 1; filter: drop-shadow(0 0 16px rgba(246, 202, 101, 0.8)); }
+  }
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-7px); }
+  }
+
+  /* Continuous Celestial Orbit System */
+  @keyframes celestial-orbit-rotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  @keyframes celestial-counter-rotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(-360deg); }
+  }
+
+  .orbit-track {
+    animation: celestial-orbit-rotate 50s linear infinite;
+  }
+  .orbit-counter {
+    animation: celestial-counter-rotate 50s linear infinite;
+  }
+
+  /* Pause rotation on hover so guests can comfortably interact */
+  .orbit-container:hover .orbit-track,
+  .orbit-container:hover .orbit-counter {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .orbit-track,
+    .orbit-counter,
+    .animate-float,
+    .animate-pulse-gold {
+      animation-play-state: paused !important;
+    }
+  }
+
+  .animate-float {
+    animation: float-gentle 6s ease-in-out infinite;
+  }
+  .animate-pulse-gold {
+    animation: orbit-pulse 4s ease-in-out infinite;
+  }
+</style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline-variant": "#4e4637", "inverse-primary": "#785a00", "on-error-container": "#ffdad6", "on-background": "#dce1fd", "surface-container-high": "#23293d", "tertiary": "#ffeab2", "secondary-fixed": "#ffe088", "on-tertiary-fixed": "#231b00", "primary-fixed": "#ffdf9c", "error": "#ffb4ab", "on-secondary-container": "#342800", "on-error": "#690005", "surface": "#070d20", "on-surface": "#dce1fd", "secondary-container": "#af8d11", "tertiary-fixed-dim": "#e2c469", "on-tertiary-fixed-variant": "#564500", "tertiary-container": "#ebcd71", "surface-container": "#181f33", "error-container": "#93000a", "on-primary": "#3f2e00", "surface-dim": "#070d20", "on-tertiary-container": "#6b5600", "on-primary-container": "#715400", "background": "#070d20", "on-secondary-fixed-variant": "#574500", "primary": "#ffeac1", "on-primary-fixed": "#251a00", "surface-container-highest": "#2e3449", "surface-bright": "#32384d", "surface-container-lowest": "#040713", "inverse-on-surface": "#293044", "on-secondary-fixed": "#241a00", "secondary-fixed-dim": "#e9c349", "primary-container": "#f6ca65", "outline": "#9a8f7d", "on-surface-variant": "#d1c5b1", "on-primary-fixed-variant": "#5b4300", "on-secondary": "#3c2f00", "primary-fixed-dim": "#ecc15d", "secondary": "#e9c349", "tertiary-fixed": "#ffe083", "on-tertiary": "#3c2f00", "inverse-surface": "#dce1fd", "surface-variant": "#2e3449", "surface-tint": "#ecc15d", "surface-container-low": "#0d1428" }, "fontFamily": { "cinzel": ["Cinzel", "serif"], "serif-display": ["Playfair Display", "serif"], "manrope": ["Manrope", "sans-serif"] } } } }</script></head>
+<body class="bg-[#070d20] font-manrope text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden">
+<!-- Floating Top Ambient: Discreet Monogram ONLY (Zero Institutional Navbar) -->
+<header class="fixed top-0 left-0 right-0 w-full z-40 pointer-events-none p-5 sm:p-7 flex items-center justify-between">
+<div class="pointer-events-auto flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border border-primary-container/40 bg-[#070d20]/80 backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(246,202,101,0.25)] transition-transform hover:scale-110">
+<span class="font-cinzel text-xs text-primary font-bold tracking-widest">SF</span>
+</div>
+<span class="hidden sm:inline font-cinzel text-[11px] uppercase tracking-[0.3em] text-secondary/80">Sophia Fontes • XV</span>
+</div>
+<div class="pointer-events-auto flex items-center gap-3">
+<button class="w-10 h-10 rounded-full border border-primary-container/30 bg-[#070d20]/80 backdrop-blur-md flex items-center justify-center text-primary-container hover:border-primary-container hover:shadow-[0_0_20px_rgba(246,202,101,0.4)] transition-all" id="audio-toggle-btn" title="Trilha Sonora Celestial">
+<span class="material-symbols-outlined text-[18px]" id="audio-icon">volume_up</span>
+</button>
+</div>
+</header>
+<main class="w-full min-h-screen bg-[#070d20] relative flex flex-col items-center justify-center overflow-hidden">
+<!-- Dynamic Stardust Canvas -->
+<canvas class="absolute inset-0 w-full h-full pointer-events-none z-0" height="1191" id="celestial-canvas" width="1280"></canvas>
+<!-- Ambient Golden and Midnight Nebulae -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-to-tr from-primary-container/15 via-[#1b2b5a]/30 to-transparent blur-[160px] pointer-events-none z-0"></div>
+<div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-primary-container/10 blur-[130px] pointer-events-none z-0"></div>
+<!-- MAIN CELESTIAL STAGE -->
+<div class="relative z-10 w-full max-w-[1280px] mx-auto px-4 sm:px-6 pt-20 pb-16 flex flex-col items-center text-center">
+<!-- Title & Date Header -->
+<div class="flex flex-col items-center mb-6 sm:mb-8 animate-float">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-primary-container/30 bg-[#0b132b]/80 backdrop-blur-md mb-3 shadow-[0_0_20px_rgba(246,202,101,0.15)]">
+<span class="text-secondary text-xs">✦</span>
+<span class="font-cinzel text-[11px] sm:text-xs uppercase tracking-[0.35em] text-secondary font-semibold">Celebração de 15 Anos</span>
+<span class="text-secondary text-xs">✦</span>
+</div>
+<h1 class="font-cinzel text-3xl sm:text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-b from-primary via-primary-container to-secondary tracking-[0.22em] uppercase font-bold drop-shadow-[0_4px_24px_rgba(246,202,101,0.4)]">
+        Sophia Fontes
+      </h1>
+<p class="font-serif-display text-base sm:text-xl text-primary/90 italic tracking-[0.25em] sm:tracking-[0.3em] uppercase mt-2">
+        ✦ O Encontro do Sol com a Lua ✦
+      </p>
+<div class="flex items-center gap-4 text-xs sm:text-sm text-secondary/80 font-cinzel tracking-[0.25em] uppercase mt-2">
+<span class="">05 de Junho de 2027</span>
+<span class="text-primary-container text-[8px]">●</span>
+<span class="">Às 18:30h</span>
+<span class="text-primary-container text-[8px]">●</span>
+<span class="">Ballroom Solarium</span>
+</div>
+</div>
+<!-- CENTRAL CELESTIAL ARTWORK WITH ORBITING STARS -->
+<div class="orbit-container relative w-full max-w-[840px] aspect-[16/10] sm:aspect-[16/9] flex items-center justify-center my-2 sm:my-4">
+<!-- Orbital Astronomical Rings -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[114%] h-[114%] rounded-[50%] border border-primary-container/20 pointer-events-none rotate-[-12deg]"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[128%] h-[128%] rounded-[50%] border border-dashed border-primary-container/15 pointer-events-none rotate-[24deg]"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[98%] h-[98%] rounded-[50%] border border-primary-container/25 pointer-events-none"></div>
+<!-- Luminous Celestial Orbit Path Guide Track -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[106%] h-[106%] sm:w-[108%] sm:h-[108%] rounded-[50%] border border-primary-container/25 border-dashed pointer-events-none shadow-[0_0_20px_rgba(246,202,101,0.15)]"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[106%] h-[106%] sm:w-[108%] sm:h-[108%] rounded-[50%] border border-primary-container/10 pointer-events-none"></div>
+<!-- Golden Halo Glow behind Artwork -->
+<div class="absolute inset-4 sm:inset-6 rounded-2xl bg-gradient-to-r from-primary-container/25 via-secondary/20 to-primary-container/25 blur-2xl -z-10 animate-pulse-gold"></div>
+<!-- The Central Art Piece https://lh3.googleusercontent.com/aida-public/AB6AXuBzTRp8EO1jeRsvKgN6Fezt7EGb_710cA6M6-b51u-zIlPg_m5D--OQyvT6dlNMMR9lSkBLMuz2yaKicu4A7W0qzJwPUIkXM9-HuF00lDvlj5gKJR_afYc_jNhfffczaAe7BKEpOBPZ1sKumr5T3rHga2P51RXFvh-1M-SDMxpuJMvJjdxGPhGxJ3GYgJscWzH5AgyoiDlP_-gfLrtmf1jGy1dSun0GkiYb8b6q7isf8k9xk-sOJA2KKKvml-uzwKUYZg -->
+<div class="relative w-full h-full rounded-2xl overflow-hidden border-2 border-primary-container/50 shadow-[0_0_60px_rgba(246,202,101,0.35),0_25px_80px_rgba(0,0,0,0.9)] group">
+<img alt="O Encontro do Sol com a Lua - Sophia Fontes 15 Anos" class="w-full h-full object-cover object-center scale-[1.01] group-hover:scale-105 transition-transform duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzTRp8EO1jeRsvKgN6Fezt7EGb_710cA6M6-b51u-zIlPg_m5D--OQyvT6dlNMMR9lSkBLMuz2yaKicu4A7W0qzJwPUIkXM9-HuF00lDvlj5gKJR_afYc_jNhfffczaAe7BKEpOBPZ1sKumr5T3rHga2P51RXFvh-1M-SDMxpuJMvJjdxGPhGxJ3GYgJscWzH5AgyoiDlP_-gfLrtmf1jGy1dSun0GkiYb8b6q7isf8k9xk-sOJA2KKKvml-uzwKUYZg"/>
+<!-- Subtle Vignette & Shimmer -->
+<div class="absolute inset-0 bg-gradient-to-t from-[#070d20]/80 via-transparent to-[#070d20]/40 pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-[#070d20]/50 via-transparent to-[#070d20]/50 pointer-events-none"></div>
+<!-- Center Golden Invitation Seal Button -->
+<button class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 group/seal flex flex-col items-center justify-center focus:outline-none transition-transform hover:scale-110 active:scale-95" onclick="openCelestialModal('poema')">
+<div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-tr from-secondary-container via-primary-container to-secondary p-[2px] shadow-[0_0_35px_rgba(246,202,101,0.7),0_0_70px_rgba(246,202,101,0.35)] animate-pulse">
+<div class="w-full h-full rounded-full bg-[#070d20]/90 backdrop-blur-md flex flex-col items-center justify-center border border-primary/50 relative overflow-hidden">
+<span class="material-symbols-outlined text-primary-container text-2xl group-hover/seal:scale-125 transition-transform">auto_awesome</span>
+<span class="font-cinzel text-[9px] uppercase tracking-[0.25em] text-primary mt-1 font-bold">Abrir</span>
+<span class="text-[8px] uppercase tracking-[0.2em] text-secondary/90 font-manrope">Mensagem</span>
+</div>
+</div>
+<span class="mt-2.5 px-3 py-1 rounded-full bg-[#070d20]/85 border border-primary-container/40 text-[10px] font-cinzel uppercase tracking-[0.25em] text-primary shadow-lg backdrop-blur-sm opacity-90 group-hover/seal:opacity-100">
+            Convite Cerimonial
+          </span>
+</button>
+<!-- Lower Emblem Caption -->
+<div class="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none flex items-center gap-2 px-4 py-1 rounded-full bg-[#070d20]/85 backdrop-blur-md border border-primary-container/30">
+<span class="text-secondary text-xs">✦</span>
+<span class="font-cinzel text-[10px] sm:text-xs text-primary font-bold tracking-[0.25em] uppercase">SF • Portal Oficial Sol &amp; Lua</span>
+<span class="text-secondary text-xs">✦</span>
+</div>
+</div>
+<!-- ================= DYNAMIC CONTINUOUS ORBITING SYSTEM (60° INTERVALS) ================= -->
+<div class="orbit-track absolute top-1/2 left-1/2 w-[106%] h-[106%] sm:w-[108%] sm:h-[108%] pointer-events-none z-30">
+<!-- 1. RSVP / Confirmação (Angle: 240° -> Top Left Orbit) -->
+<div class="absolute top-[6.7%] left-[25%] -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
+<div class="orbit-counter">
+<button class="group flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-full bg-[#09112a]/95 border border-primary-container/70 shadow-[0_0_25px_rgba(246,202,101,0.4)] backdrop-blur-md hover:border-primary-container hover:scale-110 hover:shadow-[0_0_35px_rgba(246,202,101,0.8)] transition-all whitespace-nowrap" onclick="openCelestialModal('rsvp')">
+<span class="text-primary-container text-base sm:text-xl group-hover:rotate-45 transition-transform duration-500">✦</span>
+<span class="font-cinzel text-[11px] sm:text-sm uppercase tracking-[0.2em] text-primary font-bold">CONFIRMAÇÃO</span>
+</button>
+</div>
+</div>
+<!-- 2. Localização (Angle: 300° -> Top Right Orbit) -->
+<div class="absolute top-[6.7%] left-[75%] -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
+<div class="orbit-counter">
+<button class="group flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-full bg-[#09112a]/95 border border-primary-container/60 shadow-[0_0_25px_rgba(246,202,101,0.35)] backdrop-blur-md hover:border-primary-container hover:scale-110 hover:shadow-[0_0_35px_rgba(246,202,101,0.8)] transition-all whitespace-nowrap" onclick="openCelestialModal('mapa')">
+<span class="text-primary-container text-base sm:text-xl group-hover:rotate-45 transition-transform duration-500">✦</span>
+<span class="font-cinzel text-[11px] sm:text-sm uppercase tracking-[0.2em] text-primary font-bold">Localização</span>
+</button>
+</div>
+</div>
+<!-- 3. Galeria (Angle: 0° / 360° -> Right Equator) -->
+<div class="absolute top-[50%] left-[100%] -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
+<div class="orbit-counter">
+<button class="group flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-full bg-[#09112a]/95 border border-primary-container/60 shadow-[0_0_25px_rgba(246,202,101,0.35)] backdrop-blur-md hover:border-primary-container hover:scale-110 hover:shadow-[0_0_35px_rgba(246,202,101,0.8)] transition-all whitespace-nowrap" onclick="openCelestialModal('galeria')">
+<span class="text-primary-container text-base sm:text-xl group-hover:rotate-45 transition-transform duration-500">✦</span>
+<span class="font-cinzel text-[11px] sm:text-sm uppercase tracking-[0.2em] text-primary font-bold">Galeria</span>
+</button>
+</div>
+</div>
+<!-- 4. Informações (Angle: 60° -> Bottom Right Orbit) -->
+<div class="absolute top-[93.3%] left-[75%] -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
+<div class="orbit-counter">
+<button class="group flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-full bg-[#09112a]/95 border border-primary-container/60 shadow-[0_0_25px_rgba(246,202,101,0.35)] backdrop-blur-md hover:border-primary-container hover:scale-110 hover:shadow-[0_0_35px_rgba(246,202,101,0.8)] transition-all whitespace-nowrap" onclick="openCelestialModal('info')">
+<span class="text-primary-container text-base sm:text-xl group-hover:rotate-45 transition-transform duration-500">✦</span>
+<span class="font-cinzel text-[11px] sm:text-sm uppercase tracking-[0.2em] text-primary font-bold">Informações</span>
+</button>
+</div>
+</div>
+<!-- 5. Presentes (Angle: 120° -> Bottom Left Orbit) -->
+<div class="absolute top-[93.3%] left-[25%] -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
+<div class="orbit-counter">
+<button class="group flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-full bg-[#09112a]/95 border border-primary-container/60 shadow-[0_0_25px_rgba(246,202,101,0.35)] backdrop-blur-md hover:border-primary-container hover:scale-110 hover:shadow-[0_0_35px_rgba(246,202,101,0.8)] transition-all whitespace-nowrap" onclick="openCelestialModal('presentes')">
+<span class="text-primary-container text-base sm:text-xl group-hover:rotate-45 transition-transform duration-500">✦</span>
+<span class="font-cinzel text-[11px] sm:text-sm uppercase tracking-[0.2em] text-primary font-bold">Presentes</span>
+</button>
+</div>
+</div>
+<!-- 6. Dress Code (Angle: 180° -> Left Equator) -->
+<div class="absolute top-[50%] left-[0%] -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
+<div class="orbit-counter">
+<button class="group flex items-center gap-1.5 sm:gap-2.5 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-full bg-[#09112a]/95 border border-primary-container/60 shadow-[0_0_25px_rgba(246,202,101,0.35)] backdrop-blur-md hover:border-primary-container hover:scale-110 hover:shadow-[0_0_35px_rgba(246,202,101,0.8)] transition-all whitespace-nowrap" onclick="openCelestialModal('dresscode')">
+<span class="text-primary-container text-base sm:text-xl group-hover:rotate-45 transition-transform duration-500">✦</span>
+<span class="font-cinzel text-[11px] sm:text-sm uppercase tracking-[0.2em] text-primary font-bold">Dress Code</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Astronomical Countdown Timer Pill -->
+<div class="mt-14 sm:mt-16 w-full max-w-xl mx-auto p-4 sm:p-5 rounded-2xl bg-[#09112a]/80 border border-primary-container/30 backdrop-blur-xl shadow-[0_15px_40px_rgba(0,0,0,0.7),0_0_25px_rgba(246,202,101,0.12)] flex flex-col items-center">
+<div class="flex items-center gap-2 text-secondary font-cinzel text-xs uppercase tracking-[0.25em] mb-3">
+<span class="">✦</span>
+<span class="">Contagem para o Alinhamento</span>
+<span class="">✦</span>
+</div>
+<div class="grid grid-cols-4 gap-2.5 sm:gap-4 w-full text-center">
+<div class="p-2 sm:p-3 rounded-lg bg-[#070d20]/80 border border-primary-container/20">
+<span class="font-cinzel text-2xl sm:text-3xl text-primary font-bold block" id="cd-days">228</span>
+<span class="text-[10px] sm:text-[11px] uppercase tracking-widest text-secondary/80 font-cinzel">Dias</span>
+</div>
+<div class="p-2 sm:p-3 rounded-lg bg-[#070d20]/80 border border-primary-container/20">
+<span class="font-cinzel text-2xl sm:text-3xl text-primary font-bold block" id="cd-hours">19</span>
+<span class="text-[10px] sm:text-[11px] uppercase tracking-widest text-secondary/80 font-cinzel">Horas</span>
+</div>
+<div class="p-2 sm:p-3 rounded-lg bg-[#070d20]/80 border border-primary-container/20">
+<span class="font-cinzel text-2xl sm:text-3xl text-primary font-bold block" id="cd-mins">27</span>
+<span class="text-[10px] sm:text-[11px] uppercase tracking-widest text-secondary/80 font-cinzel">Minutos</span>
+</div>
+<div class="p-2 sm:p-3 rounded-lg bg-[#070d20]/80 border border-primary-container/20">
+<span class="font-cinzel text-2xl sm:text-3xl text-secondary font-bold block" id="cd-secs">16</span>
+<span class="text-[10px] sm:text-[11px] uppercase tracking-widest text-secondary/80 font-cinzel">Segundos</span>
+</div>
+</div>
+<div class="mt-3 text-[11px] tracking-[0.2em] text-on-surface-variant font-cinzel uppercase">
+        05 de Junho de 2027 • Ballroom Solarium (Bangu)
+      </div>
+</div>
+</div>
+</main>
+<!-- ========================= MODAIS CELESTIAIS ========================= -->
+<div class="fixed inset-0 z-50 bg-[#040713]/90 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 overflow-y-auto" id="celestial-modal-backdrop">
+<!-- MODAL: MENSAGEM POÉTICA / CONVITE CERIMONIAL -->
+<div class="modal-panel hidden w-full max-w-2xl rounded-2xl bg-gradient-to-b from-[#0c142e] to-[#050a18] border border-primary-container/50 p-6 sm:p-10 shadow-[0_0_50px_rgba(246,202,101,0.25)] relative my-auto text-center" id="modal-poema">
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-1" onclick="closeCelestialModal()">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<div class="w-14 h-14 mx-auto rounded-full border border-primary-container/50 flex items-center justify-center text-secondary mb-3 shadow-[0_0_20px_rgba(246,202,101,0.3)]">
+<span class="font-cinzel text-lg font-bold">SF</span>
+</div>
+<span class="font-cinzel text-[11px] tracking-[0.3em] uppercase text-secondary block mb-1">Com a bênção de seus pais e sob o testemunho do céu</span>
+<h3 class="font-cinzel text-2xl sm:text-3xl text-primary font-bold tracking-widest uppercase mb-4">Sophia Fontes</h3>
+<div class="h-px w-24 mx-auto bg-gradient-to-r from-transparent via-primary-container to-transparent mb-5"></div>
+<p class="font-serif-display text-base sm:text-lg text-on-surface/95 italic leading-relaxed max-w-xl mx-auto">
+      “Assim como o Sol ilumina os dias e a Lua encanta as noites, existem momentos feitos para brilhar eternamente.<br/><br/>
+      Entre sonhos, estrelas e novos começos, chegou a hora de celebrar meus 15 anos. Uma noite em que o dourado do Sol encontra a magia da Lua, tornando realidade um dos capítulos mais especiais da minha história.<br/><br/>
+      Será uma alegria ter você comigo para iluminar essa noite e torná-la inesquecível.”
+    </p>
+<div class="mt-8 pt-4 border-t border-primary-container/20 flex flex-wrap items-center justify-center gap-4">
+<button class="px-7 py-2.5 rounded-full bg-gradient-to-r from-secondary-fixed via-primary-container to-secondary text-on-primary-container font-cinzel text-xs font-bold uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(246,202,101,0.4)] hover:scale-105 transition-all" onclick="openCelestialModal('rsvp')">Confirmar Presença (Confirmação)</button>
+<button class="px-5 py-2.5 rounded-full border border-primary-container/40 text-primary font-cinzel text-xs uppercase tracking-wider hover:bg-surface-container-high transition-colors" onclick="closeCelestialModal()">
+        Retornar ao Cosmos
+      </button>
+</div>
+</div>
+<!-- MODAL: RSVP -->
+<div class="modal-panel hidden w-full max-w-lg rounded-2xl bg-gradient-to-b from-[#0c142e] to-[#050a18] border border-primary-container/50 p-6 sm:p-8 shadow-[0_0_50px_rgba(246,202,101,0.25)] relative my-auto" id="modal-rsvp">
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-1" onclick="closeCelestialModal()">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<div class="text-center mb-6">
+<span class="text-primary-container text-2xl">✦</span>
+<h3 class="font-cinzel text-xl sm:text-2xl text-primary font-bold tracking-wider uppercase mt-1">Confirmar Presença</h3>
+<p class="text-xs text-on-surface-variant font-manrope mt-1">15 Anos de Sophia Fontes • Ballroom Solarium (05.06.2027)</p>
+</div>
+<form class="space-y-4" id="rsvp-form" onsubmit="event.preventDefault(); window.submitRSVP();">
+<div>
+<label class="block font-cinzel text-xs uppercase tracking-wider text-secondary mb-1" for="guest-name">Nome Completo do Convidado</label>
+<input class="w-full px-4 py-2.5 rounded-lg bg-[#070d20] border border-primary-container/30 text-on-surface font-manrope text-sm focus:border-primary-container focus:outline-none focus:ring-1 focus:ring-primary-container transition-all" id="guest-name" placeholder="Ex: Gabriel &amp; Família" required="" type="text"/>
+</div>
+<div>
+<label class="block font-cinzel text-xs uppercase tracking-wider text-secondary mb-1" for="guest-phone">WhatsApp para Confirmação</label>
+<input class="w-full px-4 py-2.5 rounded-lg bg-[#070d20] border border-primary-container/30 text-on-surface font-manrope text-sm focus:border-primary-container focus:outline-none focus:ring-1 focus:ring-primary-container transition-all" id="guest-phone" placeholder="(21) 99999-9999" required="" type="tel"/>
+</div>
+<div>
+<label class="block font-cinzel text-xs uppercase tracking-wider text-secondary mb-2">Presença na Cerimônia</label>
+<div class="grid grid-cols-2 gap-3">
+<label class="flex items-center gap-2 p-2.5 rounded-lg bg-[#070d20] border border-primary-container/40 cursor-pointer hover:border-primary-container transition-colors">
+<input checked="" class="text-primary-container focus:ring-0" name="attendance" type="radio" value="sim"/>
+<span class="font-cinzel text-xs text-primary font-semibold">Sim, estarei lá! ✦</span>
+</label>
+<label class="flex items-center gap-2 p-2.5 rounded-lg bg-[#070d20] border border-outline-variant/30 cursor-pointer hover:border-outline-variant transition-colors">
+<input class="text-primary-container focus:ring-0" name="attendance" type="radio" value="nao"/>
+<span class="font-cinzel text-xs text-on-surface-variant">Infelizmente não</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block font-cinzel text-xs uppercase tracking-wider text-secondary mb-1" for="guest-count">Quantidade de Pessoas</label>
+<select class="w-full px-4 py-2.5 rounded-lg bg-[#070d20] border border-primary-container/30 text-on-surface font-manrope text-sm focus:border-primary-container focus:outline-none transition-all" id="guest-count">
+<option value="1">1 Pessoa (Apenas eu)</option>
+<option value="2">2 Pessoas</option>
+<option value="3">3 Pessoas (Família)</option>
+<option value="4">4 Pessoas (Família)</option>
+</select>
+</div>
+<div>
+<label class="block font-cinzel text-xs uppercase tracking-wider text-secondary mb-1" for="guest-diet">Recado de Carinho para Sophia (Opcional)</label>
+<input class="w-full px-4 py-2.5 rounded-lg bg-[#070d20] border border-primary-container/30 text-on-surface font-manrope text-sm focus:border-primary-container focus:outline-none transition-all" id="guest-diet" placeholder="Deixe sua mensagem..." type="text"/>
+</div>
+<button class="w-full mt-2 py-3 rounded-lg bg-gradient-to-r from-secondary-fixed via-primary-container to-secondary text-on-primary-container font-cinzel text-xs font-bold uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(246,202,101,0.4)] hover:shadow-[0_0_30px_rgba(246,202,101,0.7)] transition-all" type="submit">
+        Confirmar Presença
+      </button>
+<div class="text-center text-[10px] text-on-surface-variant/80 tracking-widest font-cinzel uppercase">
+        Confirmação solicitada com carinho até 20 de Maio de 2027.
+      </div>
+</form>
+<div class="hidden text-center py-6" id="rsvp-success">
+<span class="text-primary-container text-4xl block mb-2">✦</span>
+<h4 class="font-cinzel text-lg text-primary font-bold uppercase">Presença Confirmada nas Estrelas!</h4>
+<p class="font-manrope text-sm text-on-surface-variant mt-2 max-w-sm mx-auto">
+        Sua resposta foi gravada com honra. Será uma noite inesquecível ao lado de Sophia Fontes!
+      </p>
+<button class="mt-5 px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-cinzel text-xs uppercase tracking-wider font-bold shadow-[0_0_15px_rgba(246,202,101,0.4)]" onclick="closeCelestialModal()">
+        Fechar
+      </button>
+</div>
+</div>
+<!-- MODAL: LOCALIZAÇÃO -->
+<div class="modal-panel hidden w-full max-w-2xl rounded-2xl bg-gradient-to-b from-[#0c142e] to-[#050a18] border border-primary-container/50 p-6 sm:p-8 shadow-[0_0_50px_rgba(246,202,101,0.25)] relative my-auto" id="modal-mapa">
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-1" onclick="closeCelestialModal()">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<div class="text-center mb-5">
+<span class="text-primary-container text-2xl">✦</span>
+<h3 class="font-cinzel text-xl sm:text-2xl text-primary font-bold tracking-wider uppercase mt-1">Ballroom Solarium</h3>
+<p class="text-xs text-secondary font-cinzel tracking-widest uppercase mt-0.5">Bangu • Rio de Janeiro - RJ</p>
+</div>
+<div class="space-y-4 font-manrope text-sm text-on-surface">
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-primary-container/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl shrink-0 mt-0.5">schedule</span>
+<div class=""><strong class="text-primary block font-cinzel">Horário de Chegada</strong> 18:30h (pedimos pontualidade para o cortejo e momento solene).</div>
+</div>
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-primary-container/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl shrink-0 mt-0.5">location_on</span>
+<div class=""><strong class="text-primary block font-cinzel">Endereço</strong> Ballroom Solarium - Casa de Festas em Bangu, Rio de Janeiro - RJ.</div>
+</div>
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-primary-container/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl shrink-0 mt-0.5">local_parking</span>
+<div class=""><strong class="text-primary block font-cinzel">Acesso &amp; Estacionamento</strong> Entrada principal com serviço de recepção e manobrista.</div>
+</div>
+<a class="w-full py-3 rounded-lg bg-gradient-to-r from-secondary-fixed via-primary-container to-secondary text-on-primary-container font-cinzel text-xs font-bold uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(246,202,101,0.35)] flex items-center justify-center gap-2 text-center hover:scale-[1.02] transition-all" href="https://www.google.com/maps/place/Ballroom+Solarium+-+Casa+de+Festas+em+Bangu/@-22.878492,-43.475471,849m/data=!3m1!1e3!4m6!3m5!1s0x9bdfe640b3eb0d:0x65fa3828c85d8aaa!8m2!3d-22.878492!4d-43.475471!16s%2Fg%2F11cn5rmf67!18m1!1e1?entry=ttu&amp;g_ep=EgoyMDI2MTAxNC4wIKXMDSoASAFQAw%3D%3D" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-lg">near_me</span>
+        Abrir Rota no Google Maps
+      </a>
+</div>
+</div>
+<!-- MODAL: DRESS CODE -->
+<div class="modal-panel hidden w-full max-w-xl rounded-2xl bg-gradient-to-b from-[#0c142e] to-[#050a18] border border-primary-container/50 p-6 sm:p-8 shadow-[0_0_50px_rgba(246,202,101,0.25)] relative my-auto" id="modal-dresscode">
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-1" onclick="closeCelestialModal()">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<div class="text-center mb-5">
+<span class="text-primary-container text-2xl">✦</span>
+<h3 class="font-cinzel text-xl sm:text-2xl text-primary font-bold tracking-wider uppercase mt-1">Dress Code Oficial</h3>
+<p class="text-xs text-secondary font-cinzel tracking-widest uppercase mt-0.5">Orientações de Traje Cerimonial</p>
+</div>
+<div class="space-y-3 font-manrope text-sm">
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-primary-container/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl shrink-0 mt-0.5">verified</span>
+<div>
+<h4 class="font-cinzel text-primary font-bold text-xs uppercase tracking-wider">Traje: Passeio</h4>
+<p class="text-on-surface-variant text-xs mt-0.5">Elegância e conforto na medida certa para celebrar este alinhamento astral.</p>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-error/30 flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-xl shrink-0 mt-0.5">block</span>
+<div>
+<h4 class="font-cinzel text-error font-bold text-xs uppercase tracking-wider">Cores Reservadas: Sem Azul e Sem Dourado</h4>
+<p class="text-on-surface-variant text-xs mt-0.5"><strong>Não utilizar roupas azuis ou douradas</strong> de qualquer tonalidade. Estas cores são exclusivas da debutante Sophia Fontes para os momentos do Sol e da Lua.</p>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-secondary/30 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl shrink-0 mt-0.5">texture</span>
+<div>
+<h4 class="font-cinzel text-secondary font-bold text-xs uppercase tracking-wider">Uso Obrigatório de Peças Lisas</h4>
+<p class="text-on-surface-variant text-xs mt-0.5"><strong>Não utilize estampas de qualquer tipo</strong> (florais, listradas, geométricas, etc.). É obrigatório o uso de tecidos totalmente lisos para manter a harmonia visual da cerimônia.</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-5 py-2.5 rounded-lg bg-surface-container border border-primary-container/40 text-primary font-cinzel text-xs uppercase tracking-wider hover:bg-surface-container-high transition-colors" onclick="closeCelestialModal()">
+      Entendido com carinho
+    </button>
+</div>
+<!-- MODAL: GUIA DE PRESENTES -->
+<div class="modal-panel hidden w-full max-w-xl rounded-2xl bg-gradient-to-b from-[#0c142e] to-[#050a18] border border-primary-container/50 p-6 sm:p-8 shadow-[0_0_50px_rgba(246,202,101,0.25)] relative my-auto" id="modal-presentes">
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-1" onclick="closeCelestialModal()">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<div class="text-center mb-5">
+<span class="text-primary-container text-2xl">✦</span>
+<h3 class="font-cinzel text-xl sm:text-2xl text-primary font-bold tracking-wider uppercase mt-1">Guia de Presentes</h3>
+<p class="text-xs text-secondary font-cinzel tracking-widest uppercase mt-0.5">Medidas e Preferências da Sophia</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-manrope">
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-primary-container/20">
+<span class="font-cinzel text-[10px] uppercase tracking-wider text-secondary block font-semibold">Vestuário</span>
+<span class="font-cinzel text-base text-primary font-bold block mt-0.5">Tamanho 36 / P</span>
+<span class="text-xs text-on-surface-variant mt-0.5 block">Vestidos, saias e blusas elegantes.</span>
+</div>
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-primary-container/20">
+<span class="font-cinzel text-[10px] uppercase tracking-wider text-secondary block font-semibold">Calçados</span>
+<span class="font-cinzel text-base text-primary font-bold block mt-0.5">Tamanho 36</span>
+<span class="text-xs text-on-surface-variant mt-0.5 block">Sandálias ou sapatos finos.</span>
+</div>
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-primary-container/20 sm:col-span-2">
+<span class="font-cinzel text-[10px] uppercase tracking-wider text-secondary block font-semibold">Acessórios &amp; Joias</span>
+<span class="font-cinzel text-sm text-primary font-bold block mt-0.5">Anéis tamanho 18 • Pulseiras e cordões</span>
+<span class="text-xs text-on-surface-variant mt-0.5 block">Preferência por tons dourados ou prata clara delicada.</span>
+</div>
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-primary-container/20 sm:col-span-2">
+<span class="font-cinzel text-[10px] uppercase tracking-wider text-secondary block font-semibold">Cosméticos &amp; Beleza</span>
+<span class="font-cinzel text-sm text-primary font-bold block mt-0.5">Fragrâncias Suaves &amp; Maquiagens</span>
+<span class="text-xs text-on-surface-variant mt-0.5 block">Fragrâncias florais/frescas ou body splash (sem ser muito doce) e maquiagem em geral.</span>
+</div>
+</div>
+<button class="w-full mt-5 py-2.5 rounded-lg bg-surface-container border border-primary-container/40 text-primary font-cinzel text-xs uppercase tracking-wider hover:bg-surface-container-high transition-colors" onclick="closeCelestialModal()">
+      Fechar
+    </button>
+</div>
+<!-- MODAL: INFORMAÇÕES IMPORTANTES -->
+<div class="modal-panel hidden w-full max-w-xl rounded-2xl bg-gradient-to-b from-[#0c142e] to-[#050a18] border border-primary-container/50 p-6 sm:p-8 shadow-[0_0_50px_rgba(246,202,101,0.25)] relative my-auto" id="modal-info">
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-1" onclick="closeCelestialModal()">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<div class="text-center mb-5">
+<span class="text-primary-container text-2xl">✦</span>
+<h3 class="font-cinzel text-xl sm:text-2xl text-primary font-bold tracking-wider uppercase mt-1">Informações Importantes</h3>
+<p class="text-xs text-secondary font-cinzel tracking-widest uppercase mt-0.5">Guia da Cerimônia</p>
+</div>
+<div class="space-y-3 font-manrope text-sm text-on-surface">
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-primary-container/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl shrink-0">alarm_on</span>
+<div class=""><strong class="text-primary block font-cinzel">Chegada Pontual às 18:30h</strong> Portões e coquetel de boas-vindas abrem pontualmente às 18:30h para início da solenidade.</div>
+</div>
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-primary-container/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl shrink-0">badge</span>
+<div class=""><strong class="text-primary block font-cinzel">Lista Nominal de Convidados</strong> Entrada conferida na recepção com os nomes confirmados pela Confirmação.</div>
+</div>
+<div class="p-3.5 rounded-xl bg-[#070d20] border border-primary-container/20 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl shrink-0">photo_camera</span>
+<div class=""><strong class="text-primary block font-cinzel">Fotografias &amp; Cabine Celestial</strong> Cabine fotográfica e cenários exclusivos estarão disponíveis durante toda a festa.</div>
+</div>
+</div>
+<button class="w-full mt-5 py-2.5 rounded-lg bg-surface-container border border-primary-container/40 text-primary font-cinzel text-xs uppercase tracking-wider hover:bg-surface-container-high transition-colors" onclick="closeCelestialModal()">
+      Entendi
+    </button>
+</div>
+<!-- MODAL: GALERIA CELESTIAL -->
+<div class="modal-panel hidden w-full max-w-3xl rounded-2xl bg-gradient-to-b from-[#0c142e] to-[#050a18] border border-primary-container/50 p-6 sm:p-8 shadow-[0_0_50px_rgba(246,202,101,0.25)] relative my-auto" id="modal-galeria">
+<button class="absolute top-4 right-4 text-on-surface-variant hover:text-primary transition-colors p-1" onclick="closeCelestialModal()">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<div class="text-center mb-5">
+<span class="text-primary-container text-2xl">✦</span>
+<h3 class="font-cinzel text-xl sm:text-2xl text-primary font-bold tracking-wider uppercase mt-1">Galeria Celestial</h3>
+<p class="text-xs text-secondary font-cinzel tracking-widest uppercase mt-0.5">Identidade Visual &amp; O Encontro do Sol com a Lua</p>
+</div>
+<div class="space-y-4">
+<div class="rounded-xl overflow-hidden border border-primary-container/40 shadow-lg relative aspect-video">
+<img alt="Obra de Arte Sophia Fontes" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzTRp8EO1jeRsvKgN6Fezt7EGb_710cA6M6-b51u-zIlPg_m5D--OQyvT6dlNMMR9lSkBLMuz2yaKicu4A7W0qzJwPUIkXM9-HuF00lDvlj5gKJR_afYc_jNhfffczaAe7BKEpOBPZ1sKumr5T3rHga2P51RXFvh-1M-SDMxpuJMvJjdxGPhGxJ3GYgJscWzH5AgyoiDlP_-gfLrtmf1jGy1dSun0GkiYb8b6q7isf8k9xk-sOJA2KKKvml-uzwKUYZg"/>
+</div>
+<p class="text-center text-xs text-on-surface-variant font-manrope italic">
+        A harmonia sagrada entre a luz radiante do Sol e o misticismo protetor da Lua, celebrando o nascimento deste novo ciclo.
+      </p>
+</div>
+</div>
+</div>
+<!-- Minimal Celestial Footer -->
+<footer class="w-full bg-[#040713] border-t border-primary-container/15 py-8 text-center relative z-10">
+<div class="max-w-xl mx-auto px-4 flex flex-col items-center">
+<span class="font-cinzel text-xs text-secondary tracking-[0.3em] uppercase">✦ SF • MMXXVII ✦</span>
+<p class="font-cinzel text-[11px] text-on-surface-variant tracking-[0.2em] uppercase mt-1">
+      Sophia Fontes • 15 Anos • Ballroom Solarium
+    </p>
+</div>
+</footer>
+<!-- Scripts -->
+<script>
+  (function () {
+    // 1. Dynamic Canvas Stardust
+    const canvas = document.getElementById('celestial-canvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      let stars = [];
+      const numStars = 85;
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.3,
+          speed: Math.random() * 0.2 + 0.05,
+          alpha: Math.random() * 0.8 + 0.2,
+          increasing: Math.random() > 0.5
+        });
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let star of stars) {
+          if (star.increasing) {
+            star.alpha += 0.005;
+            if (star.alpha >= 0.95) star.increasing = false;
+          } else {
+            star.alpha -= 0.005;
+            if (star.alpha <= 0.15) star.increasing = true;
+          }
+          star.y -= star.speed;
+          if (star.y < 0) {
+            star.y = canvas.height;
+            star.x = Math.random() * canvas.width;
+          }
+
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(246, 202, 101, ${star.alpha})`;
+          ctx.fill();
+        }
+        requestAnimationFrame(animate);
+      }
+      animate();
+    }
+
+    // 2. Countdown Timer
+    const daysEl = document.getElementById('cd-days');
+    const hoursEl = document.getElementById('cd-hours');
+    const minsEl = document.getElementById('cd-mins');
+    const secsEl = document.getElementById('cd-secs');
+    const eventDate = new Date('2027-06-05T18:30:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = eventDate - now;
+
+      if (diff > 0) {
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+        if (daysEl) daysEl.textContent = String(d).padStart(2, '0');
+        if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
+        if (minsEl) minsEl.textContent = String(m).padStart(2, '0');
+        if (secsEl) secsEl.textContent = String(s).padStart(2, '0');
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // 3. Modal Manager
+    const backdrop = document.getElementById('celestial-modal-backdrop');
+
+    window.openCelestialModal = function(modalType) {
+      if (!backdrop) return;
+      document.querySelectorAll('.modal-panel').forEach(panel => panel.classList.add('hidden'));
+
+      const targetModal = document.getElementById(`modal-${modalType}`);
+      if (targetModal) {
+        backdrop.classList.remove('hidden');
+        backdrop.classList.add('flex');
+        targetModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    window.closeCelestialModal = function() {
+      if (!backdrop) return;
+      backdrop.classList.add('hidden');
+      backdrop.classList.remove('flex');
+      document.querySelectorAll('.modal-panel').forEach(panel => panel.classList.add('hidden'));
+      document.body.style.overflow = '';
+    };
+
+    if (backdrop) {
+      backdrop.addEventListener('click', function(e) {
+        if (e.target === backdrop) {
+          window.closeCelestialModal();
+        }
+      });
+    }
+
+    window.submitRSVP = function () {
+      const form = document.getElementById('rsvp-form');
+      const success = document.getElementById('rsvp-success');
+      if (form && success) {
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+      }
+    };
+
+    // 4. Music icon state toggle
+    const audioBtn = document.getElementById('audio-toggle-btn');
+    const audioIcon = document.getElementById('audio-icon');
+    let playing = true;
+    if (audioBtn && audioIcon) {
+      audioBtn.addEventListener('click', function() {
+        playing = !playing;
+        audioIcon.textContent = playing ? 'volume_up' : 'volume_off';
+      });
+    }
+  })();
+</script>
+</body></html>

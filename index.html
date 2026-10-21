@@ -127,6 +127,29 @@
       <span class="text-[10px] sm:text-[11px] text-on-surface-variant font-cinzel uppercase tracking-[0.2em] mt-4 opacity-80">
         Toque para assistir à introdução
       </span>
+
+      <!-- Rodapé pequeno e discreto no final da tela inicial -->
+      <div class="absolute bottom-4 sm:bottom-6 left-0 right-0 flex items-center justify-center gap-2.5 px-4 pointer-events-auto z-30">
+        <span class="text-[11px] sm:text-xs text-on-surface-variant/75 font-manrope tracking-wider">
+          Desenvolvido por
+        </span>
+        <a
+          href="https://msodevsites.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="btn-mso-intro"
+          title="MSO - Desenvolvimento de Sites"
+          aria-label="Acessar MSO Desenvolvimento de Sites"
+          class="group inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#f3f5f8] p-1 border border-primary-container/30 shadow-[0_0_12px_rgba(0,132,255,0.25)] hover:shadow-[0_0_20px_rgba(0,132,255,0.6)] hover:border-cyan-400 hover:scale-110 active:scale-95 transition-all duration-200"
+        >
+          <img
+            src="public/mso-logo.png"
+            alt="MSO Desenvolvimento de Sites"
+            class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
+            loading="lazy"
+          />
+        </a>
+      </div>
     </div>
 
     <!-- Barra de Progresso Dourada Delicada no rodapé do vídeo -->
@@ -570,13 +593,41 @@
 </div>
 </div>
 <!-- Minimal Celestial Footer -->
-<footer class="w-full bg-[#040713] border-t border-primary-container/15 py-8 text-center relative z-10">
-<div class="max-w-xl mx-auto px-4 flex flex-col items-center">
-<span class="font-cinzel text-xs text-secondary tracking-[0.3em] uppercase">✦ SF • MMXXVII ✦</span>
-<p class="font-cinzel text-[11px] text-on-surface-variant tracking-[0.2em] uppercase mt-1">
-      Sophia Fontes • 15 Anos • Ballroom Solarium
-    </p>
-</div>
+<footer class="w-full bg-[#040713] border-t border-primary-container/15 py-8 relative z-10">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 relative flex flex-col sm:flex-row items-center justify-center">
+    <!-- Monograma Central e Detalhes do Evento -->
+    <div class="flex flex-col items-center text-center">
+      <span class="font-cinzel text-xs text-secondary tracking-[0.3em] uppercase">✦ SF • MMXXVII ✦</span>
+      <p class="font-cinzel text-[11px] text-on-surface-variant tracking-[0.2em] uppercase mt-1">
+        Sophia Fontes • 15 Anos • Ballroom Solarium
+      </p>
+    </div>
+
+    <!-- Botão Logo MSO (Canto Direito) -->
+    <div class="mt-5 sm:mt-0 sm:absolute sm:right-6 md:right-8 flex items-center">
+      <a
+        href="https://msodevsites.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        id="btn-mso-dev"
+        title="MSO - Desenvolvimento de Sites"
+        aria-label="Acessar MSO Desenvolvimento de Sites"
+        class="group relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-[#f3f5f8] p-1.5 border border-primary-container/30 shadow-[0_0_15px_rgba(246,202,101,0.2)] hover:shadow-[0_0_25px_rgba(0,132,255,0.65)] hover:border-cyan-400 hover:scale-110 active:scale-95 transition-all duration-300"
+      >
+        <img
+          src="public/mso-logo.png"
+          alt="MSO Desenvolvimento de Sites"
+          class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+          loading="lazy"
+        />
+        <!-- Tooltip flutuante discreto ao passar o mouse -->
+        <span class="absolute bottom-full mb-2 right-1/2 translate-x-1/2 sm:right-0 sm:translate-x-0 hidden group-hover:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#070d20] border border-primary-container/40 text-primary font-cinzel text-[10px] tracking-wider uppercase whitespace-nowrap shadow-xl pointer-events-none transition-opacity z-20">
+          <span>MSO DEV</span>
+          <span class="material-symbols-outlined text-[12px] text-secondary">open_in_new</span>
+        </span>
+      </a>
+    </div>
+  </div>
 </footer>
 <!-- Scripts -->
 <script>
@@ -855,6 +906,13 @@
         introVideo.play().catch(err => {
           console.warn('Erro ao tocar vídeo manualmente:', err);
           onVideoCompleted();
+        });
+      }
+
+      const btnMsoIntro = document.getElementById('btn-mso-intro');
+      if (btnMsoIntro) {
+        btnMsoIntro.addEventListener('click', function(e) {
+          e.stopPropagation();
         });
       }
 
